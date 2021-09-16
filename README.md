@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @tusharthomas
 - 👀 I’m interested in Visual Studio, Visual Basic, VBA, C
-- 🌱 I’m currently learning Visual Basic
+- 🌱 I’m currently learning Visual Basic, Visual Studio basics
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me: tushar175@gmail.com
