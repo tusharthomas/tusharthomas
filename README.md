@@ -17,5 +17,3 @@
 - I love learning languages 
   - I can speak German and Spanish proficiently; I studied French in university; I am learning Portuguese and Hindi
 - I like reading in my free time
-  - Favorite literary quote: "I love those who do not want to preserve themselves. Those who are going under I love with my whole love: for they cross over."
-
