@@ -18,5 +18,3 @@
   - I can speak German and Spanish proficiently; I studied French in university; I am learning Portuguese and Hindi
 - I like reading in my free time
   - I recently finished *Notes from the Underground*
-
-- This is a test line to commit
