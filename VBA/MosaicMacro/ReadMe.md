@@ -1,8 +1,8 @@
-#Read Me
+# Read Me
 
 This add-in helps you add color to your time at the office by transforming your Excel sheets into works of art.
 
-##Setup Instructions
+## Setup Instructions
 
 - Download the add-in files/clone the repository
 
@@ -20,7 +20,7 @@ This add-in helps you add color to your time at the office by transforming your 
     4. Navigate to the location of the add-in and double click
     5. Ensure that the add-in shows up in the Excel add-ins window and that the line is checked
 
-##Technical Notes
+## Technical Notes
 
 - Create Mosaic: creates blank canvas, resizes tiles, then colors the tiles
 - Create Blank Canvas: clears all information in the worksheet, resizes all cells in the nxn grid, adds borders, and adds gray coloring to all cells outside the nxn grid
