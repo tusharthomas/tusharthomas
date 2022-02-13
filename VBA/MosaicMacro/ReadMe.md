@@ -6,14 +6,14 @@ This add-in helps you add color to your time at the office by transforming your 
 
 - Download the add-in files/clone the repository
 
-- Enable the developer tab
+- Enable the developer tab in Excel
     1. Press "File" in the top left
     2. Press "Options" in the bottom left
     3. Press "Customize Ribbons" on the left pane
     4. In the right window, check the line that says "Developer"
     5. Press "Ok"
 
-- Add the add-in
+- Add the add-in in Excel
     1. Navigate to the Developer tab in the Excel ribbon
     2. Press "Excel Add-ins"
     3. Press "Browse"
