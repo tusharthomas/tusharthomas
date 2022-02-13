@@ -1,10 +1,10 @@
-Attribute VB_Name = "Main"
+Attribute VB_Name = "mdlMain"
 Option Explicit
 
     Const NUMBER_OF_ROWS As Integer = 128
     Const NUMBER_OF_COLUMNS As Integer = 128
 
-    Sub Main()
+    Public Sub Main()
     
         If MsgBox(Prompt:=MAIN_INITIAL_PROMPT, Title:=MAIN_INITIAL_TITLE, Buttons:=vbYesNo) <> vbYes Then Exit Sub
         Call ToggleApplicationSettings(False)
@@ -89,7 +89,6 @@ Option Explicit
     '2.0 Tear down
     
         If IsExternallyCalled Then
-            Call MsgBox(Prompt:=FORMAT_FINAL_PROMPT, Title:=FORMAT_FINAL_TITLE, Buttons:=vbOKOnly)
             Call ToggleApplicationSettings(True)
         End If
     
@@ -159,7 +158,6 @@ ApplyColor:
     '2.0 Tear down
     
         If IsExternallyCalled Then
-            Call MsgBox(Prompt:=COLOR_FINAL_PROMPT, Title:=COLOR_FINAL_TITLE, Buttons:=vbOKOnly)
             Call ToggleApplicationSettings(False)
         End If
         
@@ -274,7 +272,6 @@ NextCell:
         Next y
         
         If IsExternallyCalled Then
-            Call MsgBox(Prompt:=RESIZE_FINAL_PROMPT, Title:=RESIZE_FINAL_TITLE, Buttons:=vbOKOnly)
             Call ToggleApplicationSettings(False)
         End If
         
@@ -284,8 +281,4 @@ EndOfSub:
         Set MyWS = Nothing
         
     End Sub
-    
-    Function ContainsMergedCells(MyRange As Range) As Boolean
-        
-    End Function
     

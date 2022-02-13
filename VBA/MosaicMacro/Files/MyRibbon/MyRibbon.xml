@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+<ribbon>
+    <tabs>
+        <tab id = "MosaicAddInTab" label = "Mosaic" >
+            
+            <group id = "MainGroup" label = "Main">
+                <button id = "PaintButton" label = "Create Mosaic!" imageMso = "MoviePlay" size = "large" onAction = "ProcessCallbacks"/>
+            </group>
+            
+            <group id = "CreateGroup" label = "Create">
+                <button id = "CreateButton" label = "Create Blank Canvas" imageMso = "ViewGridlinesWord" size = "large" onAction = "ProcessCallbacks"/>
+                <button id = "ResizeButton" label = "Resize Tiles" imageMso = "SmartArtSmallerShape" size = "large" onAction = "ProcessCallbacks"/>
+                <button id = "ColorButton" label = "Color Tiles" imageMso = "InkColorMoreColorsDialog" size = "large" onAction = "ProcessCallbacks"/>
+            </group>
+
+            <group id = "SettingsGroup" label = "Settings">
+                <button id = "SettingsButton" label = "Change Settings" imageMso = "OmsViewAccountSetting" size = "large" onAction = "ProcessCallbacks"/>
+            </group>
+
+        </tab> 
+    </tabs>
+</ribbon>
+</customUI>
