@@ -1,6 +1,6 @@
 # Read Me
 
-This add-in helps you add color to your time at the office by transforming your Excel sheets into works of art.
+This add-in adds color to your office time by transforming Excel files into works of art.
 
 ## Setup Instructions
 
