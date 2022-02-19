@@ -1,0 +1,24 @@
+{
+    "Number of Rows" : 128,
+    "Number of Columns" : 128,
+    "Tile Height/Width (px.)" : 64,
+    "Tile Creation Algorithm" : 1,
+    "Colors" : [
+        {
+            "Color" : "Green, Accent 6, Lighter 40%",
+            "Code" : 9359529
+        },
+        {
+            "Color" : "Gold, Accent 4", 
+            "Code" : 49407
+        },
+        {
+            "Color" : "Blue, Accent 1",
+            "Code" : 12874308
+        },
+        {
+            "Color" : "Light Blue", 
+            "Code" : 16763183
+        }
+    ]
+}

@@ -1,8 +1,16 @@
 Attribute VB_Name = "mdlMain"
-Option Explicit
+ Option Explicit
 
     Const NUMBER_OF_ROWS As Integer = 128
     Const NUMBER_OF_COLUMNS As Integer = 128
+    
+    Public Property Get MySettings() As AddInSettings
+        Static Settings As AddInSettings
+        If Settings Is Nothing Then
+            Set Settings = New AddInSettings
+        End If
+        Set MySettings = Settings
+    End Property
 
     Public Sub Main()
     
@@ -103,15 +111,8 @@ EndOfSub:
     
     '0.0 Setup
     
-        Const COLOR1 As Long = 16763183
-        Const COLOR2 As Long = 49407
-        Const COLOR3 As Long = 9359529 'Olive green
-        Const COLOR4 As Long = 12874308
-        Const COLOR5 As Long = 6968388
-        Const COLOR6 As Long = 15132391
-    
         Dim x As Integer, y As Integer
-        Dim Colors As Variant: Colors = Array(COLOR1, COLOR2, COLOR3, COLOR4)
+        Dim Colors As Variant: Colors = MySettings.ParseColorsJSON.Items
         Dim RandomIndex As Integer
         Dim TryCounter As Integer
         
@@ -280,5 +281,16 @@ EndOfSub:
         Set MyRange = Nothing
         Set MyWS = Nothing
         
+    End Sub
+    
+    Sub Test()
+        Dim f As FileSystemObject: Set f = New FileSystemObject
+        Dim t As TextStream
+        Dim Mytext As String
+        Set t = f.OpenTextFile("C:\Users\tusha\Documents\projects\MyGithub\tusharthomas\VBA\MosaicMacro\Settings.json", ForReading, False)
+        Mytext = t.ReadAll
+        t.Close
+        Stop
+        Set f = Nothing
     End Sub
     
