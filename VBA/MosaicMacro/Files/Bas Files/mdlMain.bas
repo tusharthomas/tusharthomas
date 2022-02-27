@@ -286,9 +286,9 @@ EndOfSub:
     Sub Test()
         Dim f As FileSystemObject: Set f = New FileSystemObject
         Dim t As TextStream
-        Dim Mytext As String
+        Dim MyText As String
         Set t = f.OpenTextFile("C:\Users\tusha\Documents\projects\MyGithub\tusharthomas\VBA\MosaicMacro\Settings.json", ForReading, False)
-        Mytext = t.ReadAll
+        MyText = t.ReadAll
         t.Close
         Stop
         Set f = Nothing

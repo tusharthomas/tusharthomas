@@ -18,6 +18,6 @@ Public Sub ProcessCallbacks(Control As IRibbonControl)
         Case COLOR_ID
             Call ColorCanvas(True)
         Case SETTINGS_ID
-            'In development
+            SettingsForm.Show
     End Select
 End Sub

@@ -15,19 +15,27 @@ Option Explicit
         If Dir(FilePath, vbNormal) = "" Then Call CreateFile
     End Sub
 
-    Private Property Get FilePath() As String
+    Public Property Get FilePath() As String
         FilePath = Replace(ThisWorkbook.FullName, ThisWorkbook.Name, "") & FILE_NAME
+    End Property
+    
+    Public Property Get SettingsTextStream(Mode As IOMode) As TextStream
+        Dim MyPath As String: MyPath = FilePath
+        Dim MyFileSystemObject As FileSystemObject: Set MyFileSystemObject = New FileSystemObject
+        If Dir(MyPath, vbNormal) = "" Then Call CreateFile
+        Set SettingsTextStream = MyFileSystemObject.OpenTextFile(MyPath, Mode, False)
+        Set MyFileSystemObject = Nothing
     End Property
     
     Public Property Get SettingsText() As String
     
-        Dim MyFileSystemObject As FileSystemObject: Set MyFileSystemObject = New FileSystemObject
-        Dim MyTextStream As TextStream: Set MyTextStream = MyFileSystemObject.OpenTextFile(FilePath, ForReading, False)
+        Dim MyTextStream As TextStream: Set MyTextStream = SettingsTextStream(ForReading)
         
         SettingsText = MyTextStream.ReadAll
         
+        MyTextStream.Close
+        
         Set MyTextStream = Nothing
-        Set MyFileSystemObject = Nothing
         
     End Property
     
@@ -66,7 +74,7 @@ Option Explicit
         
     End Property
     
-    Private Function CreateJSON(NumberOfRows As Integer, NumberOfColumns As Integer, TileDimension As Integer, AlgorithmCode As Integer, ColorsDictionary As Scripting.Dictionary) As String
+    Public Function CreateJSON(NumberOfRows As Integer, NumberOfColumns As Integer, TileDimension As Integer, AlgorithmCode As Integer, ColorsDictionary As Scripting.Dictionary) As String
     
         Const NUMBER_OF_ROWS_PLACEHOLDER As String = "@NumberOfRows"
         Const NUMBER_OF_COLUMNS_PLACEHOLDER As String = "@NumberOfColumns"
@@ -97,6 +105,8 @@ Option Explicit
     End Function
     
     Private Function ParseColorsDictionary(ColorsDictionary As Scripting.Dictionary) As String
+    
+        'Loops through provided dictionary and creates JSON-formatted text from data
     
         Const NAME_PLACEHOLDER As String = "@Name"
         Const CODE_PLACEHOLDER As String = "@Code"
@@ -130,6 +140,8 @@ Option Explicit
     
     Public Function ParseColorsJSON() As Scripting.Dictionary
     
+        'Retrieves settings JSON text, loops through colors portion, and creates dictionary using data
+    
     '0.0 Setup
     
         Const COLORS_HEADER As String = """Colors"" : ["
@@ -141,6 +153,7 @@ Option Explicit
         Dim ColorName As String
         Dim ColorCode As Long
         Dim StartPosition As Integer, EndPosition As Integer
+        Dim x As Integer: x = 1
         
         Dim ColorsDictionary As Scripting.Dictionary: Set ColorsDictionary = New Scripting.Dictionary
         
@@ -155,7 +168,7 @@ Option Explicit
         
     '2.0 Process line-by-line
         
-        Do Until MySettingsText = ""
+        Do Until HasValues(MySettingsText) = False
             
             MyLine = Mid(MySettingsText, 1, InStr(1, MySettingsText, vbCr)) 'Retrieve one line
             
@@ -173,6 +186,9 @@ Option Explicit
 NextLine:
             
             MySettingsText = Replace(MySettingsText, MyLine, "")
+            If Len(Replace(MySettingsText, Chr(10), "")) = 0 Then MySettingsText = ""
+            
+            x = x + 1
             
         Loop
         
@@ -184,7 +200,7 @@ NextLine:
         
     End Function
     
-    Public Function JSONData(FieldName As String, JSONText As String) As String
+    Private Function JSONData(FieldName As String, JSONText As String) As String
     
         Dim StartPosition As Integer, EndPosition As Integer
         
@@ -192,10 +208,32 @@ NextLine:
         
         StartPosition = InStr(1, JSONText, FieldName) + Len(FieldName)
         
-        EndPosition = InStr(StartPosition, JSONText, vbCr)
+        EndPosition = InStr(StartPosition, JSONText, vbCr) - 1
         If Mid(JSONText, EndPosition, 1) = "," Then EndPosition = EndPosition - 1
         
-        JSONData = Trim(Mid(JSONText, StartPosition, EndPosition - StartPosition))
+        JSONData = Trim(Mid(JSONText, StartPosition, EndPosition - StartPosition + 1))
         
     End Function
     
+    Public Property Get NumberOfRows() As Integer
+        Const FIELD_NAME As String = "Number of Rows"
+        NumberOfRows = JSONData(FIELD_NAME, Me.SettingsText)
+    End Property
+    
+    Public Property Get NumberOfColumns() As Integer
+        Const FIELD_NAME As String = "Number of Columns"
+        NumberOfColumns = JSONData(FIELD_NAME, Me.SettingsText)
+    End Property
+
+    Public Property Get TileHeightWidthPixels() As Integer
+        Const FIELD_NAME As String = "Tile Height/Width (px.)"
+        TileHeightWidthPixels = JSONData(FIELD_NAME, Me.SettingsText)
+    End Property
+    
+    Public Property Get TileCreationAlgorithm() As Integer
+        Const FIELD_NAME As String = "Tile Creation Algorithm"
+        TileCreationAlgorithm = JSONData(FIELD_NAME, Me.SettingsText)
+    End Property
+    
+    Public Property Get MERGE_CODE() As Integer: MERGE_CODE = 1: End Property
+    Public Property Get BISECT_CODE() As Integer: BISECT_CODE = 2: End Property
