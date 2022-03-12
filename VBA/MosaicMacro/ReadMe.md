@@ -26,7 +26,7 @@ This add-in adds color to your office time by transforming Excel files into work
 - Create Blank Canvas: clears all information in the worksheet, resizes all cells in the nxn grid, adds borders, and adds gray coloring to all cells outside the nxn grid
 - Resize tiles: loops through every cell in the nxn grid, moving horizontally, and merges cells
 - Color canvas: loops through every cell in the nxn grid, colors the top-left cell in the merged area, attempting to assign a unique color to each cell whenever possible
-- Change settings: (in development) retrieves setting preferences via a userform and writes the preferences to a file in the same directory
+- Change settings: retrieves setting preferences via a userform and writes the preferences to a file in the same directory
 
 - The bas files that contain the VBA code can be found in "Files\Bas Files"
 - The XML files used to create the custom ribbon can be found in "Files\MyRibbon" And "Files\\_rels"
