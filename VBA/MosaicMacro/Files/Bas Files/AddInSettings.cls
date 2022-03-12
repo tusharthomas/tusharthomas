@@ -235,5 +235,9 @@ NextLine:
         TileCreationAlgorithm = JSONData(FIELD_NAME, Me.SettingsText)
     End Property
     
+    Public Property Get ColorsArray() As Variant
+        ColorsArray = ParseColorsJSON.Items
+    End Property
+    
     Public Property Get MERGE_CODE() As Integer: MERGE_CODE = 1: End Property
     Public Property Get BISECT_CODE() As Integer: BISECT_CODE = 2: End Property

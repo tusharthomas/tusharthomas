@@ -220,7 +220,17 @@ InvalidInput:
                 Exit Sub
             End If
             
-    '2.0 Check if the color is already in the list
+    '2.0 Check if input valid
+    
+            For x = 1 To ColorTextboxes.Count
+                Select Case True
+                    Case Not IsNumeric(ColorTextboxes(x).Value), CInt(ColorTextboxes(x).Value) < 0, CInt(ColorTextboxes(x).Value) > 255
+                        Call MsgBox(Prompt:=INVALID_INPUT_PROMPT, Title:=INVALID_INPUT_TITLE, Buttons:=vbOKOnly)
+                        Exit Sub
+                End Select
+            Next x
+            
+    '3.0 Check if the color is already in the list
             
             With .ColorsListBox
                 
@@ -231,7 +241,7 @@ InvalidInput:
                     End If
                 Next x
                 
-    '3.0 If checks are passed, add to listbox
+    '4.0 If checks are passed, add to listbox
     
                 .AddItem Chr(QUOTE_CHAR_CODE) & Me.NameTextbox.Value & Chr(QUOTE_CHAR_CODE)
                 .List(.ListCount - 1, 1) = RGBText

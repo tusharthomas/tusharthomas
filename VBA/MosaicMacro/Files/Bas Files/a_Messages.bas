@@ -26,7 +26,7 @@ Public Const EXISTING_COLOR_TITLE As String = "Color already included."
 Public Const SETTINGS_APPLIED_PROMPT As String = "Successfully saved settings!"
 Public Const SETTINGS_APPLIED_TITLE As String = "Settings saved"
 
-Public Const INVALID_INPUT_PROMPT As String = "Oops, looks like one of the inputs is not numeric or formatted incorrectly. Please check the dimension textboxes."
+Public Const INVALID_INPUT_PROMPT As String = "Oops, looks like one of the inputs is not numeric or formatted incorrectly. Please check the input and try again."
 Public Const INVALID_INPUT_TITLE As String = "Invalid data type"
 
 Public Const SMALL_INPUT_PROMPT As String = "Oops, looks like one of the inputs is too large. You can't input a dimension smaller than 5."

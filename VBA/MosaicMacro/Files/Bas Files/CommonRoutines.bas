@@ -33,10 +33,10 @@ End Function
 
 Public Function ConstructRGBString(Red As String, Green As String, Blue As String) As String
 
-    Const RGB_TEMPLATE As String = "(@Red, @Blue, @Green)"
+    Const RGB_TEMPLATE As String = "(@Red, @Green, @Blue)"
     Const RED_PLACEHOLDER As String = "@Red"
-    Const BLUE_PLACEHOLDER As String = "@Blue"
     Const GREEN_PLACEHOLDER As String = "@Green"
+    Const BLUE_PLACEHOLDER As String = "@Blue"
 
     Dim RGBText As String: RGBText = RGB_TEMPLATE
 
@@ -84,4 +84,12 @@ Public Function RGBToLong(ByVal RGBText As String) As Long
     
     RGBToLong = RGB(Red, Green, Blue)
     
+End Function
+
+Public Function IsNumericAndValid(DataValue As String, Optional IsColorCode As Boolean = False) As Boolean
+    IsNumericAndValid = True
+    Select Case True
+        Case Not IsNumeric(DataValue), CInt(DataValue) < 0, (IsColorCode And CInt(DataValue) > 255)
+            IsNumericAndValid = False
+    End Select
 End Function
