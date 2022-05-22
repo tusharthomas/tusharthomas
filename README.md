@@ -7,10 +7,10 @@
 
 ## My Education
 
+- I'm eager to learn more CS fundamentals and am considering going back to school to build my knowledge in this domain
 - In my undergraduate, I studied Literature
 - In my Master's, I studied Finance
 - I am committed to perpetual learning
-- I'm eager to learn more CS fundamentals and am considering going back to school to build my knowledge in this domain
 
 ## My Interests
 
