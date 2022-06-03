@@ -2,7 +2,7 @@
 
 - I'm a Data Analyst and programmer, eager to learn new skills and build my expertise
 - Throughout my professional experience thus far, I have worked extensively with **Visual Basic for Applications** and **SQL**
-- I have also used **HTML** to format automated e-mails delivered via Outlook 
+- I have also used **HTML** to format automated e-mails sent via Outlook 
 - I have taught myself some **C** and **Python** on the side
 
 ## My Education
