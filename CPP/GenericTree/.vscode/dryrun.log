@@ -1,0 +1,14 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/tusharthomas/Documents/tusharthomas/CPP/GenericTree'
+mkdir -p .objs
+mkdir -p .objs/uiuc
+mkdir -p .objs/uiuc/catch
+mkdir -p .objs/tests
+g++  -std=c++14   -g -O0 -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable -MMD -MP -msse2 -c  main.cpp -o .objs/main.o
+g++ .objs/main.o  -std=c++14   -lpthread  -o main
+echo
+echo " Built the main executable program file for the project: " main
+echo " (Make sure you try \"make test\" too!)"
+echo 
+make: Leaving directory '/home/tusharthomas/Documents/tusharthomas/CPP/GenericTree'
+ 
