@@ -63,7 +63,7 @@ public:
 
     // Add a rightmost child to this node storing a copy of the provided data.
     // Returns a pointer to the new child node.
-    TreeNode* F(const T& childData);
+    TreeNode* addChild(const T& childData);
 
     // Default constructor: Indicate that there is no parent.
     TreeNode() : parentPtr(nullptr) {}

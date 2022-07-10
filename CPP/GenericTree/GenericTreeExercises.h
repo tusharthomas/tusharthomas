@@ -28,10 +28,15 @@
 // as being in your own source code files, where it arises later.
 #include <iostream>
 #include <string>
+//#include <vector>
 
 // This is the provided GenericTree class. You can study the header file
 // liner notes for additional tips and information about the assignment.
 #include "GenericTree.h"
+
+template <typename V>               V process2DVector(std::vector<V>* arr);
+template <typename N, typename V>   void traverseHelper(int prevLevel, N* myNode, std::vector<V>* arr);
+
 
 /*******************************************************************
   EXERCISE 1: Populate a tree by completing the treeFactory function.
@@ -98,31 +103,28 @@ static void treeFactory(GenericTree<int>& tree) {
 
   tree.compress();
 
-  std::cout << "compressed tree" << std::endl;
-
   n->data = 4;
 
-  std::cout << "set root to 4" << std::endl;
-
   for (i = 0; i < 3; i++) {
-    std::cout << "started loop" << std::endl;
     if (n->childrenPtrs.size() == 0) {  //add both children
-      n->addChild(leftValues[i]);   std::cout << "no children: added left" << std::endl;
-      n->addChild(rightValues[i]);  std::cout << "no children: added right" << std::endl;
+      n->addChild(leftValues[i]);
+      n->addChild(rightValues[i]);
     } else if (n->childrenPtrs.size() == 1) { //set left child, add the right child
-      n->childrenPtrs[LEFT]->data = leftValues[i];    std::cout << "one child: set value" << std::endl;
-      n->addChild(rightValues[i]);                    std::cout << "one child: add right" << std::endl;
+      n->childrenPtrs[LEFT]->data = leftValues[i];    
+      n->addChild(rightValues[i]);                   
     } else {  //set both children, remove any other children
-      n->childrenPtrs[LEFT]->data = leftValues[i];    std::cout << "2 children: set left value" << std::endl;
-      n->childrenPtrs[RIGHT]->data = rightValues[i];  std::cout << "2 children: set right value" << std::endl;
+      n->childrenPtrs[LEFT]->data = leftValues[i];   
+      n->childrenPtrs[RIGHT]->data = rightValues[i]; 
       for (long unsigned int j = 2; j < n->childrenPtrs.size(); j++) {
-        std::cout << "2 children: delete node " << j << std::endl;
         tree.deleteSubtree(n->childrenPtrs[j]);
       }
-      //tree.compress();  std::cout << "2 children: compressed tree" << std::endl;
+      tree.compress();
     }
-    if (leftValues[i] == NOVALUE) {n->childrenPtrs[LEFT] = nullptr;   std::cout << "set left child to nullptr" << std::endl;}  
-    n = n->childrenPtrs[LEFT];                                        std::cout << "move left" << std::endl;
+    if (leftValues[i] == NOVALUE) {
+      tree.deleteSubtree(n->childrenPtrs[LEFT]);
+      tree.compress();
+    }  
+    n = n->childrenPtrs[LEFT];                                                  
   }
 
 }
@@ -353,7 +355,51 @@ std::vector<T> traverseLevels(GenericTree<T>& tree) {
 
   // ...
 
+  std::vector< std::vector<T> > arr;
+
+  traverseHelper(0, rootNodePtr, &arr);
+  results = process2DVector(&arr);
   return results;
+
+}
+
+//N = pointer to TreeNode, V = inner vectors
+template <typename N, typename V>
+void traverseHelper(int prevLevel, N* myNode, std::vector<V>* arr) {
+
+  int thisLevel = prevLevel + 1;
+
+  if (thisLevel > arr->size())   { 
+    V newLevel;                   
+    arr->push_back(newLevel);     
+  }
+
+  ((*arr)[thisLevel - 1]).push_back(myNode->data);                                                  
+
+  if ((myNode->childrenPtrs).size() > 0) {
+    for (auto childPtr : myNode->childrenPtrs) {
+      if (childPtr) { 
+        traverseHelper(thisLevel, childPtr, arr); 
+      }
+    }
+  }
+
+}
+
+template <typename V>
+V process2DVector(std::vector<V>* arr) {
+
+  int level, dataPt;
+  V results;
+
+  for (level = 0; level < arr->size(); level++) {
+    for (dataPt = 0; dataPt < ((*arr)[level]).size(); dataPt++) {
+      results.push_back((*arr)[level][dataPt]);
+    }
+  }
+
+  return results;
+
 }
 
 // traversalTest: Runs some tests with your traverseLevels function and
