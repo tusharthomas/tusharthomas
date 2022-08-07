@@ -8,12 +8,10 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 30 06:28:23 2022
+# Make data base, printed on Sat Aug  6 17:25:46 2022
 
 # Variables
 
-# environment
-VSCODE_GIT_ASKPASS_MAIN = /usr/share/code/resources/app/extensions/git/dist/askpass-main.js
 # 'override' directive
 GNUMAKEFLAGS := 
 # automatic
@@ -28,8 +26,6 @@ DESKTOP_SESSION = ubuntu
 XDG_SESSION_CLASS = user
 # environment
 XDG_SESSION_TYPE = x11
-# environment
-VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -49,7 +45,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:64625
+JOURNAL_STREAM = 8:76557
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile
@@ -65,15 +61,13 @@ XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/d
 # environment
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
 _ = /usr/bin/code
 # environment
-MANAGERPID = 1518
+MANAGERPID = 1948
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
-VSCODE_CWD = /home/tusharthomas/Documents/tusharthomas/CPP
+VSCODE_CWD = /home/tusharthomas/Documents/tusharthomas/CPP/graph_search
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -81,17 +75,15 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/ubuntu:@/tmp/.ICE-unix/1731,unix/ubuntu:/tmp/.ICE-unix/1731
+SESSION_MANAGER = local/ubuntu:@/tmp/.ICE-unix/2164,unix/ubuntu:/tmp/.ICE-unix/2164
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
-VSCODE_LOG_STACK = false
-# environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = b5ce782f298740e39300279811d089ca
+INVOCATION_ID = 4a7ab4841bba4b948c8cfbbbcd8ded04
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -105,15 +97,13 @@ SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
 DISPLAY = :0
 # environment
-VSCODE_PIPE_LOGGING = true
-# environment
 PWD = /home/tusharthomas/Documents/tusharthomas/CPP
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1690
+SSH_AGENT_PID = 2123
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = Unity
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
 GTK_MODULES = gail:atk-bridge
 # environment
@@ -125,11 +115,11 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 VSCODE_CLI = 1
 # environment
-VSCODE_CODE_CACHE_PATH = /home/tusharthomas/.config/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = /home/tusharthomas/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
 LOGNAME = tusharthomas
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
@@ -141,8 +131,6 @@ GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # environment
 MAKELEVEL := 0
 # environment
-VSCODE_GIT_IPC_HANDLE = /run/user/1000/vscode-git-31bf880e6c.sock
-# environment
 COLORTERM = truecolor
 # default
 MAKE = $(MAKE_COMMAND)
@@ -151,11 +139,9 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # environment
-SHLVL = 2
+SHLVL = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8c866f08-3878-4763-99e2-55a4660ab5c3.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -169,28 +155,19 @@ XDG_CURRENT_DESKTOP = Unity
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/tusharthomas/Documents/tusharthomas/CPP/image-transform
-# environment
-VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
-# environment
-TERM_PROGRAM = vscode
+OLDPWD = /home/tusharthomas/Documents/tusharthomas/CPP
 # default
- 
 .VARIABLES := 
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-161e1c29-1.67.2-main.sock
-# environment
-VSCODE_GIT_ASKPASS_NODE = /usr/share/code/code
+VSCODE_IPC_HOOK = /run/user/1000/vscode-161e1c29-1.69.2-main.sock
 # makefile
 MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
-# environment
-TERM_PROGRAM_VERSION = 1.67.2
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -198,11 +175,7 @@ GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
 # environment
-NO_AT_BRIDGE = 1
-# environment
 QT_ACCESSIBILITY = 1
-# environment
-GIT_ASKPASS = /usr/share/code/resources/app/extensions/git/dist/askpass.sh
 # default
 MAKEFILES := 
 # automatic
@@ -212,11 +185,11 @@ LC_ALL = C
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/641ab08a_4496_4d60_bf80_5dc683ed5323
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e09dc838_0d78_4045_8c9d_62003ec4b47e
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.83
+GNOME_TERMINAL_SERVICE = :1.84
 # default
 SUFFIXES := 
 # environment
@@ -234,9 +207,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 2717
+VSCODE_PID = 3192
 # variable set hash-table stats:
-# Load=111/1024=11%, Rehash=0, Collisions=15/133=11%
+# Load=98/1024=10%, Rehash=0, Collisions=13/120=11%
 
 # Pattern-specific Variable Values
 
@@ -244,9 +217,9 @@ VSCODE_PID = 2717
 
 # Directories
 
-# . (device 2053, inode 1578217): 5 files, no impossibilities.
+# . (device 2053, inode 1578217): 10 files, no impossibilities.
 
-# 5 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -296,12 +269,13 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 13 / storage = 132 B / avg = 10 B
-# current buf: size = 8162 B / used = 132 B / count = 13 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 18 / storage = 206 B / avg = 11 B
+# current buf: size = 8162 B / used = 206 B / count = 18 / avg = 11 B
 
-# strcache performance: lookups = 16 / hit rate = 18%
+# strcache performance: lookups = 21 / hit rate = 14%
+ 
 # hash-table stats:
-# Load=13/8192=0%, Rehash=0, Collisions=1/16=6%
-# Finished Make data base on Mon May 30 06:28:23 2022
+# Load=18/8192=0%, Rehash=0, Collisions=1/21=5%
+# Finished Make data base on Sat Aug  6 17:25:46 2022
 
  
