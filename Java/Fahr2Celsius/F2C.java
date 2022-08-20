@@ -2,11 +2,28 @@ import java.util.Scanner;
 
 public class F2C {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a Fahrenheit value: ");
-        int f = input.nextInt();
-        input.close();
+        int f = getInputInt("Enter a Fahrenheit value: ");
         double c = (5.0/9) * (f - 32);
         System.out.println("Celsius: " + c);
+    }
+
+    public static int getInputInt(String prompt) {
+        
+        Scanner input = new Scanner(System.in);
+        int i;
+
+        System.out.print(prompt);
+
+        try {
+            i = input.nextInt();
+        } catch (Exception e) {
+            System.out.println("Please enter a number!");
+            i = getInputInt(prompt);
+        }
+
+        input.close();
+
+        return i;
+
     }
 }
