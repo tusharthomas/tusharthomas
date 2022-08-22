@@ -145,7 +145,8 @@ public class Calc implements ActionListener {
         }
 
         mainLabel.setText(String.format("%.2f", result));
-
+        myFrame.repaint();
+        
         isOutput = true;
 
     }
