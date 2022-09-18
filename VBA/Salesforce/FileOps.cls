@@ -54,7 +54,7 @@ Option Explicit
             If WB.Name = Trim(FileName) Then
                 Set GetWorkbook = WB
                 WBIsOpen = True
-                GoTo CheckReadOnly
+                GoTo EndOfFunction
             End If
         Next
         
@@ -64,7 +64,7 @@ Option Explicit
         
         On Error Resume Next
         
-            Set WB = Workbooks.Open(FileName:=FullPath, UpdateLinks:=False, ReadOnly:=OpenReadOnly)
+            Set GetWorkbook = Workbooks.Open(FileName:=FullPath, UpdateLinks:=False, ReadOnly:=OpenReadOnly)
             
             If Err.Number > 0 Then
         
@@ -76,21 +76,21 @@ Option Explicit
             
         On Error GoTo 0
         
-CheckReadOnly:
-        
         'Check If ReadOnly
-                        
-        On Error Resume Next
+        
         If Not OpenReadOnly Then
             If WB.ReadOnly Then
-                MsgBox "Warning! The resource you are trying to access (" & FullPath & ") is currently being used by somebody else.", vbExclamation, "Read Only"
+                MsgBox "Warning! The resource you are trying to access is currently being used by somebody else.", vbExclamation, "Read Only"
+                On Error Resume Next
                     Call Common.ToggleApplicationSettings(True)
                     End
+                On Error GoTo 0
             End If
         End If
-        On Error GoTo 0
         
-        Set GetWorkbook = WB
+EndOfFunction:
+        
+        Set WB = Nothing
         
     End Function
     
@@ -120,12 +120,12 @@ CheckReadOnly:
     
     Public Sub CreatePath(FolderPath As String)
         Dim x As Integer
-        Dim path As String
+        Dim Path As String
         Dim SubFolders() As String: SubFolders = Split(FolderPath, "\")
         For x = LBound(SubFolders) To UBound(SubFolders)
-            If path <> "" Then path = path & "\"
-            path = path & SubFolders(x)
-            If Dir(path, vbDirectory) = "" Then MkDir path
+            If Path <> "" Then Path = Path & "\"
+            Path = Path & SubFolders(x)
+            If Dir(Path, vbDirectory) = "" Then MkDir Path
         Next x
     End Sub
     
